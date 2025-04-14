@@ -2,6 +2,22 @@
 
 Vizzy is a simple graphics language for drawing shapes on a canvas.
 
+## Features
+
+The Vizzy compiler is built on Rust. It implements the following concepts to create a graphics programming language:
+
+- **Lexical Analysis**: The compiler reads the .vizzy file and breaks it into tokens, like "canvas", "point", or "color". This is done using the Pest parser with parser.pest.
+- **Parsing**: The compiler checks the tokens against grammar rules in parser.pest to build a structure of commands, such as canvas settings or shapes.
+- **Rules**: Grammar rules define valid syntax, like "canvas width=<number> height=<number> color=<string>;". These ensure commands are correct.
+- **Intermediate Representation (IR)**: Parsed commands are stored as a list of shapes (e.g., Point, Circle) in memory, forming the IR used for rendering.
+
+**Chain of Events**:
+1. The compiler reads the .vizzy file (e.g., main.vizzy).
+2. Lexical analysis turns the text into tokens.
+3. Parsing matches tokens to grammar rules.
+4. Valid commands are converted into an IR (shape objects).
+5. The IR is rendered onto a canvas to create output.png.
+
 ## Usage
 
 ### Building Vizzy
