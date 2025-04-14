@@ -1,0 +1,48 @@
+WHITESPACE = _{ " " | "\t" | "\n" }
+COMMENT = _{ "#" ~ (!"\n" ~ ANY)* ~ "\n"? }
+
+program = { SOI ~ (canvas | point | line | circle | rectangle | ellipse | arc | triangle | quadrilateral | curve | help)* ~ EOI }
+command = { canvas | point | circle | rectangle | ellipse | arc | triangle | quadrilateral | curve | help }
+
+canvas = { "canvas" ~ canvas_width ~ canvas_height ~ color? ~ ";" }
+canvas_width = { "width=" ~ number }
+canvas_height = { "height=" ~ number }
+canvas_color = { "color=" ~ string }
+
+point = { "point" ~ x ~ y ~ color ~ ";" }
+line = { "line" ~ x1 ~ y1 ~ x2 ~ y2 ~ color ~ stroke? ~ ";" }
+circle = { "circle" ~ x ~ y ~ radius ~ color ~ fill? ~ stroke? ~ ";" }
+rectangle = { "rectangle" ~ x ~ y ~ rect_width ~ rect_height ~ color ~ fill? ~ stroke? ~ ";" }
+ellipse = { "ellipse" ~ x ~ y ~ rx ~ ry ~ color ~ fill? ~ stroke? ~ ";" }
+arc = { "arc" ~ x ~ y ~ radius ~ start ~ end ~ color ~ stroke? ~ ";" }
+triangle = { "triangle" ~ x1 ~ y1 ~ x2 ~ y2 ~ x3 ~ y3 ~ color ~ fill? ~ stroke? ~ ";" }
+quadrilateral = { "quadrilateral" ~ x1 ~ y1 ~ x2 ~ y2 ~ x3 ~ y3 ~ x4 ~ y4 ~ color ~ fill? ~ stroke? ~ ";" }
+curve = { "curve" ~ x1 ~ y1 ~ x2 ~ y2 ~ x3 ~ y3 ~ color ~ stroke? ~ ";" }
+help = { "help" ~ ident ~ ";" }
+
+x = { "x=" ~ number }
+y = { "y=" ~ number }
+x1 = { "x1=" ~ number }
+y1 = { "y1=" ~ number }
+x2 = { "x2=" ~ number }
+y2 = { "y2=" ~ number }
+x3 = { "x3=" ~ number }
+y3 = { "y3=" ~ number }
+x4 = { "x4=" ~ number }
+y4 = { "y4=" ~ number }
+radius = { "radius=" ~ number }
+rx = { "rx=" ~ number }
+ry = { "ry=" ~ number }
+rect_width = { "width=" ~ number }
+rect_height = { "height=" ~ number }
+start = { "start=" ~ number }
+end = { "end=" ~ number }
+
+color = { "color=" ~ string }
+fill = { "fill=" ~ boolean }
+stroke = { "stroke=" ~ number }
+
+number = @{ "-"? ~ ASCII_DIGIT+ ~ ("." ~ ASCII_DIGIT+)? }
+string = @{ "\"" ~ (!"\"" ~ ANY)* ~ "\"" }
+boolean = @{ "true" | "false" }
+ident = @{ ASCII_ALPHA+ }
