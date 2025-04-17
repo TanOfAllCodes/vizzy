@@ -2,6 +2,10 @@
 
 Vizzy is a simple graphics language for drawing shapes on a canvas.
 
+#### Author & License
+
+I, [@TanOfAllCodes](https://github.com/TanOfAllCodes/) am the original author.
+
 ## Features
 
 The Vizzy compiler is built on Rust. It implements the following concepts to create a graphics programming language:
