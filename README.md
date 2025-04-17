@@ -5,6 +5,7 @@ Vizzy is a simple graphics language for drawing shapes on a canvas.
 #### Author & License
 
 I, [@TanOfAllCodes](https://github.com/TanOfAllCodes/) am the original author.
+Vizzy is licensed under the MIT License. See [LICENSE](LICENSE.md) for details.
 
 ## Features
 
@@ -120,6 +121,4 @@ The Vizzy repository is organized to support the compiler and user projects:
             └── triangle.rs      # Defines triangle shape properties and rendering
 ```
 
-## License
 
-Vizzy is licensed under the MIT License. See LICENSE for details.
