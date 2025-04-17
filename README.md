@@ -97,7 +97,7 @@ The Vizzy repository is organized to support the compiler and user projects:
 │   ├── output.png               # Generated image from running main.vizzy
 │   ├── run.sh                   # Script to execute the Vizzy compiler
 │   └── va_config.toml           # Config file specifying the compiler path
-├── LICENSE                      # MIT license file for the project
+├── LICENSE.md                   # MIT license file for the project
 ├── README.md                    # Documentation file (this file)
 └── vizzy                        # Directory containing the Vizzy compiler
     ├── Cargo.lock               # Locks dependency versions for reproducibility
